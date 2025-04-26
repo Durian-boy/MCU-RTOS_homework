@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "bsp_led_driver.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -115,10 +115,14 @@ void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
+  LOG(LOG_LEVEL_WARN, "Before");
+  bsp_led_driver_t led_1;
+  led_driver_inst(&led_1, NULL, NULL, NULL);
+  LOG(LOG_LEVEL_WARN, "After");
   for(;;)
   {
-    printf("Hello World\n");
-    osDelay(100);
+    
+    osDelay(1000);
   }
   /* USER CODE END StartDefaultTask */
 }
