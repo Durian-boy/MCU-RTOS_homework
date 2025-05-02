@@ -30,9 +30,11 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include <stddef.h>
 
 //******************************** Includes *********************************//
 
+typedef struct bsp_led_driver bsp_led_driver_t;
 
 //******************************** Defines **********************************//
 
@@ -75,12 +77,14 @@ typedef struct
 {
     led_status_t ( *pf_led_on )  ( void );
     led_status_t ( *pf_led_off ) ( void );
-    led_status_t ( *pf_led_ctl ) (
-                                   uint32_t,    /* period_ms */
-                                   uint32_t,    /* count */
-                                   uint32_t     /* duty */
-                                            );  
 } led_operation_t;
+
+typedef led_status_t ( *pf_led_ctrl_t ) (
+                            bsp_led_driver_t * const self,      /* led inst  */
+                            uint32_t                 period,    /* period_ms */
+                            uint32_t                 count,     /* count     */
+                            uint32_t                 duty       /* duty      */
+                                                            );  
 
 typedef struct
 {
@@ -104,7 +108,7 @@ typedef enum
     DUTY_70_PERCENT  = 7,
     DUTY_80_PERCENT  = 8,
     DUTY_90_PERCENT  = 9,
-    DUTY_MAX_PERCENT = 0xFF,
+    DUTY_MAX_PERCENT = 10,
 } led_duty_t;
 
 typedef struct bsp_led_driver
@@ -132,15 +136,34 @@ typedef struct bsp_led_driver
 //******************************* Declaring *********************************//
 
 /**
+ * @brief: Control the behavior of led
+ * @steps:
+ *      1. Set the values of parameter of led
+ * 
+ * @param[in]  self:   Pointer to a instance of bsp_led_driver_t
+ * @param[in]  period: Period of twinkling
+ * @param[in]  count:  Count of twinkling
+ * @param[in]  duty:   Duty cycle
+ * 
+ * @return led_status_t: execute result of this function
+ **/
+led_status_t led_driver_ctrl (
+                            bsp_led_driver_t * const self,      /* led inst  */
+                            uint32_t                 period,    /* period_ms */
+                            uint32_t                 count,     /* count     */
+                            led_duty_t               duty       /* duty      */
+                                                            );
+
+/**
  * @brief: initialize the led
  * @steps:
  *      1. Make the led at the specific status
  * 
- * @param[in]  self:     Pointer to a instance of bsp_led_driver_t
+ * @param[in]  self: Pointer to a instance of bsp_led_driver_t
  * 
  * @return led_status_t: execute result of this function
  **/
-led_status_t led_driver_init ( bsp_led_driver_t    * const self );
+led_status_t led_driver_init ( bsp_led_driver_t * const self );
 
 /**
  * @brief: Instantiate a bsp_led_driver_t
@@ -158,8 +181,8 @@ led_status_t led_driver_init ( bsp_led_driver_t    * const self );
  **/
 led_status_t led_driver_inst (
                                bsp_led_driver_t    * const self,
-                               led_operation_t     * const led_opt,
-                               time_operation_t    * const time_opt,
+                               led_operation_t     * const led_ops,
+                               time_operation_t    * const time_ops,
 #ifdef OS_SUPPORTING   
                                os_delay_t          * const os_delay
 #endif /* OS_SUPPORTING */  
