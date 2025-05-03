@@ -117,7 +117,7 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   LOG(LOG_LEVEL_WARN, "Before");
   bsp_led_driver_t led_1;
-  led_driver_inst(&led_1, NULL, NULL, NULL);
+  led_instantiate(&led_1, NULL);
   LOG(LOG_LEVEL_WARN, "After");
   for(;;)
   {

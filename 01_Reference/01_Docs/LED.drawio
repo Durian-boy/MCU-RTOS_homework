@@ -1,0 +1,139 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.15 Chrome/134.0.6998.205 Electron/35.2.1 Safari/537.36" version="26.2.15">
+  <diagram name="第 1 页" id="5S4vuVxPRLQxhZfNOWZq">
+    <mxGraphModel dx="1213" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="68ZaNzgCCH9Ao7kybfE5-2" target="4_80nMJ47z7gFOKhYxJM-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="68ZaNzgCCH9Ao7kybfE5-2" value="LED_0" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="74" y="390" width="126" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="68ZaNzgCCH9Ao7kybfE5-3" value="LED_1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="214" y="390" width="126" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="68ZaNzgCCH9Ao7kybfE5-4" target="68ZaNzgCCH9Ao7kybfE5-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="68ZaNzgCCH9Ao7kybfE5-4" value="LED_2" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="354" y="390" width="126" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="68ZaNzgCCH9Ao7kybfE5-5" target="4_80nMJ47z7gFOKhYxJM-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="68ZaNzgCCH9Ao7kybfE5-5" value="LED_3" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="494" y="390" width="126" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="68ZaNzgCCH9Ao7kybfE5-6" value="LED_4" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="634" y="390" width="126" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="68ZaNzgCCH9Ao7kybfE5-7" value="闪烁周期&lt;div&gt;闪烁次数&lt;/div&gt;&lt;div&gt;占空比&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="74" y="440" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="68ZaNzgCCH9Ao7kybfE5-12" value="LED_HANDLER层" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="74" y="240" width="686" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="68ZaNzgCCH9Ao7kybfE5-13" value="HAL接口" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="74" y="490" width="80" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="68ZaNzgCCH9Ao7kybfE5-22" value="将所有LED通用的部分抽出来，放在这一层，实现一些通用的控制逻辑，作为对外接口" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="74" y="280" width="686" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-1" value="闪烁周期&lt;div&gt;闪烁次数&lt;/div&gt;&lt;div&gt;占空比&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="214" y="440" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-2" value="HAL接口" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="214" y="490" width="80" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-3" value="闪烁周期&lt;div&gt;闪烁次数&lt;/div&gt;&lt;div&gt;占空比&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="354" y="440" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-4" value="HAL接口" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="354" y="490" width="80" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-5" value="闪烁周期&lt;div&gt;闪烁次数&lt;/div&gt;&lt;div&gt;占空比&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="494" y="440" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-6" value="HAL接口" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="494" y="490" width="80" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-7" value="闪烁周期&lt;div&gt;闪烁次数&lt;/div&gt;&lt;div&gt;占空比&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="634" y="440" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-8" value="HAL接口" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="634" y="490" width="80" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.092;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="68ZaNzgCCH9Ao7kybfE5-2" target="68ZaNzgCCH9Ao7kybfE5-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.295;entryY=1.05;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="68ZaNzgCCH9Ao7kybfE5-3" target="68ZaNzgCCH9Ao7kybfE5-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.704;entryY=1.05;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="68ZaNzgCCH9Ao7kybfE5-5" target="68ZaNzgCCH9Ao7kybfE5-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.909;entryY=1.017;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="68ZaNzgCCH9Ao7kybfE5-6" target="68ZaNzgCCH9Ao7kybfE5-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-18" value="挂载" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="85" y="338" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-19" value="挂载" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="229" y="338" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-20" value="挂载" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="85" y="338" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-23" value="挂载" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="369" y="338" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-24" value="挂载" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="509" y="338" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-25" value="挂载" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="649" y="338" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-27" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.opto_electronics.led_2;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="87" y="590" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-28" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.opto_electronics.led_2;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="227" y="590" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-29" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.opto_electronics.led_2;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="364" y="590" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-30" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.opto_electronics.led_2;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="507" y="590" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-31" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.opto_electronics.led_2;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="647" y="590" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.507;entryY=-0.019;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="68ZaNzgCCH9Ao7kybfE5-3" target="4_80nMJ47z7gFOKhYxJM-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.537;entryY=0.019;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="68ZaNzgCCH9Ao7kybfE5-4" target="4_80nMJ47z7gFOKhYxJM-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.507;entryY=0.01;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="68ZaNzgCCH9Ao7kybfE5-6" target="4_80nMJ47z7gFOKhYxJM-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-37" value="GPIO" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="85" y="538" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-38" value="GPIO" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="230" y="538" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-39" value="GPIO" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="364" y="538" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-40" value="GPIO" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="507" y="538" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_80nMJ47z7gFOKhYxJM-41" value="GPIO" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="647" y="538" width="50" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -38,8 +38,6 @@ typedef struct bsp_led_driver bsp_led_driver_t;
 
 //******************************** Defines **********************************//
 
-#define LED_INITED        1                 /* LED already initialized       */
-#define LED_NOT_INITED    0                 /* LED not initialized           */
 #define OS_SUPPORTING                       /* OS is available               */
 #define CURRENT_LOG_LEVEL LOG_LEVEL_WARN    /* Define the level of log       */
 #define LOG(level, fmt, ...) \
@@ -63,38 +61,27 @@ typedef enum {
 
 typedef enum
 {
-    LED_OK              = 0,        /* LED operate successfully              */
-    LED_ERROR           = 1,        /* LED error without case matched        */
-    LED_ERRORTIMEOUT    = 2,        /* LED operate failed with timeout       */
-    LED_ERRORSOURCE     = 3,        /* LED resource not available            */
-    LED_ERRORPARAMETER  = 4,        /* LED parameter error                   */
-    LED_ERRORNOMEMORY   = 5,        /* LED out of memory                     */
-    LED_ERRORISR        = 6,        /* LED not allowed in ISR context        */
-    LED_RESERVED        = 0xFF,     /* LED reserved                          */
-} led_status_t;
+    LED_INST_INITED     = 0,        /* LED handler initialized               */
+    LED_INST_NOT_INITED = 1,        /* LED handler not initialized           */
+} led_inst_init_t;
+
+typedef enum
+{
+    LED_INST_OK              = 0,    /* LED operate successfully             */
+    LED_INST_ERROR           = 1,    /* LED error without case matched       */
+    LED_INST_ERRORTIMEOUT    = 2,    /* LED operate failed with timeout      */
+    LED_INST_ERRORSOURCE     = 3,    /* LED resource not available           */
+    LED_INST_ERRORPARAMETER  = 4,    /* LED parameter error                  */
+    LED_INST_ERRORNOMEMORY   = 5,    /* LED out of memory                    */
+    LED_INST_ERRORISR        = 6,    /* LED not allowed in ISR context       */
+    LED_INST_RESERVED        = 0xFF, /* LED reserved                         */
+} led_inst_status_t;
 
 typedef struct
 {
-    led_status_t ( *pf_led_on )  ( void );
-    led_status_t ( *pf_led_off ) ( void );
+    led_inst_status_t ( *pf_led_on )  ( void );
+    led_inst_status_t ( *pf_led_off ) ( void );
 } led_operation_t;
-
-typedef led_status_t ( *pf_led_ctrl_t ) (
-                            bsp_led_driver_t * const self,      /* led inst  */
-                            uint32_t                 period,    /* period_ms */
-                            uint32_t                 count,     /* count     */
-                            uint32_t                 duty       /* duty      */
-                                                            );  
-
-typedef struct
-{
-    led_status_t ( *pf_get_time_ms )  ( uint32_t * const );
-} time_operation_t;
-
-typedef struct
-{
-    led_status_t ( *pf_os_delay_ms )  ( const uint32_t );
-} os_delay_t;
 
 typedef enum
 {
@@ -114,7 +101,7 @@ typedef enum
 typedef struct bsp_led_driver
 {
     //************************** Internal status ****************************//
-    uint8_t             is_initialized;               /* record init status  */
+    led_inst_init_t     is_initialized;               /* record init status  */
 
     //****************************** Property *******************************//
     uint32_t            period_ms;                    /* Period of twinkling */
@@ -123,47 +110,11 @@ typedef struct bsp_led_driver
 
     //************************ Interface from core **************************//
     led_operation_t     * p_led_operation_inst;       /* led ops interface   */
-    time_operation_t    * p_time_operation_inst;      /* time ops interface  */
-
-    //************************ Interface from RTOS **************************//
-#ifdef OS_SUPPORTING
-    os_delay_t          * p_os_delay;                 /* os ops interface    */
-#endif /* OS_SUPPORTING */ 
 } bsp_led_driver_t;
 
 //******************************** Defines **********************************//
 
 //******************************* Declaring *********************************//
-
-/**
- * @brief: Control the behavior of led
- * @steps:
- *      1. Set the values of parameter of led
- * 
- * @param[in]  self:   Pointer to a instance of bsp_led_driver_t
- * @param[in]  period: Period of twinkling
- * @param[in]  count:  Count of twinkling
- * @param[in]  duty:   Duty cycle
- * 
- * @return led_status_t: execute result of this function
- **/
-led_status_t led_driver_ctrl (
-                            bsp_led_driver_t * const self,      /* led inst  */
-                            uint32_t                 period,    /* period_ms */
-                            uint32_t                 count,     /* count     */
-                            led_duty_t               duty       /* duty      */
-                                                            );
-
-/**
- * @brief: initialize the led
- * @steps:
- *      1. Make the led at the specific status
- * 
- * @param[in]  self: Pointer to a instance of bsp_led_driver_t
- * 
- * @return led_status_t: execute result of this function
- **/
-led_status_t led_driver_init ( bsp_led_driver_t * const self );
 
 /**
  * @brief: Instantiate a bsp_led_driver_t
@@ -173,19 +124,13 @@ led_status_t led_driver_init ( bsp_led_driver_t * const self );
  *      3. Adding the time opt interfaces into the instance of bsp_led_driver_t
  * 
  * @param[in]  self:     Pointer to a instance of bsp_led_driver_t
- * @param[in]  led_opt:  Pointer to a instance of led_operation_t
- * @param[in]  time_opt: Pointer to a instance of time_base_t
- * @param[in]  os_delay: Pointer to a instance of os_delay_t
+ * @param[in]  led_ops:  Pointer to a instance of led_operation_t
  * 
- * @return led_status_t: execute result of this function
+ * @return led_inst_status_t: execute result of this function
  **/
-led_status_t led_driver_inst (
-                               bsp_led_driver_t    * const self,
-                               led_operation_t     * const led_ops,
-                               time_operation_t    * const time_ops,
-#ifdef OS_SUPPORTING   
-                               os_delay_t          * const os_delay
-#endif /* OS_SUPPORTING */  
-                                                                            );
+led_inst_status_t led_instantiate (
+                               bsp_led_driver_t    * const led_inst,
+                               led_operation_t     * const led_ops
+                                                                    );
 //******************************* Declaring *********************************//
 #endif // __BSP_LED_DRIVER_H__
