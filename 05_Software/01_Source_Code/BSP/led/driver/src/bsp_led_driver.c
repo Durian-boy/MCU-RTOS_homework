@@ -79,7 +79,7 @@ led_inst_status_t led_instantiate (
     }
 
     /************** 2. Checking the resource **************/
-    if ( LED_INST_NOT_INITED == led_inst->is_initialized )
+    if ( LED_INST_INITED == led_inst->is_initialized )
     {
         LOG( LOG_LEVEL_WARN, "LED inst already initialized" );
         return LED_INST_ERRORSOURCE;

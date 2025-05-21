@@ -102,6 +102,7 @@ typedef struct bsp_led_driver
 {
     //************************** Internal status ****************************//
     led_inst_init_t     is_initialized;               /* record init status  */
+    // TBD: add the mutex or semaphore for thread safe
 
     //****************************** Property *******************************//
     uint32_t            period_ms;                    /* Period of twinkling */
